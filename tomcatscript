@@ -1,0 +1,17 @@
+#!/bin/bash
+ PATCH_TO_REMOVE="apache-tomcat-8.5.58"
+
+ sudo cp apache-tomcat-8.5.58.tar.gz /home/Ayasha
+ sudo chown Ayasha:mygroup /home/Ayasha/apache-tomcat-8.5.58.tar.gz
+ sudo su Ayasha << EOF
+ cd /home/Ayasha/
+ if [ -n "$PATCH_TO_REMOVE];
+ then
+ rm -rf ${PATCH_TO_REMOVE}
+ fi
+ tar -xvzf apache-tomcat-8.5.58.tar.gz 
+ mv apache-tomcat-8.5.58 Tomcat
+ cd Tomcat
+ mkdir Catalina
+ exec bash
+ EOF
