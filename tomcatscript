@@ -1,17 +1,19 @@
 #!/bin/bash
- PATCH_TO_REMOVE="apache-tomcat-8.5.58"
+ PATCH_TO_REMOVE="apache-tomcat-8.5.75"
 
- sudo cp apache-tomcat-8.5.58.tar.gz /home/Ayasha
- sudo chown Ayasha:mygroup /home/Ayasha/apache-tomcat-8.5.58.tar.gz
+ sudo cp apache-tomcat-8.5.75.tar.gz /home/Ayasha
+ sudo chown Ayasha:mygroup /home/Ayasha/apache-tomcat-8.5.75.tar.gz
  sudo su Ayasha << EOF
  cd /home/Ayasha/
  if [ -n "$PATCH_TO_REMOVE];
  then
  rm -rf ${PATCH_TO_REMOVE}
  fi
- tar -xvzf apache-tomcat-8.5.58.tar.gz 
- mv apache-tomcat-8.5.58 Tomcat
+ tar -xvzf apache-tomcat-8.5.75.tar.gz 
+ mv apache-tomcat-8.5.75 Tomcat
  cd Tomcat
  mkdir Catalina
  exec bash
  EOF
+
+This is the script to install latest version of Tomcat8
